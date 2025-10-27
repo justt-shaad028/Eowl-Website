@@ -34,7 +34,7 @@ export default async function handler(request) {
         },
         method: 'POST',
         body: JSON.stringify({
-          inputs: sentence,
+          inputs: `grammar: ${sentence}`,
         }),
       }
     );
