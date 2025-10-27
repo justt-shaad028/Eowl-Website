@@ -4,8 +4,7 @@ export const config = {
 };
 
 // This is the AI model we'll use (a free, fast grammar corrector)
-const MODEL_API_URL = 'https://api-inference.huggingface.co/models/vennify/t5-base-grammar-correction';
-
+const MODEL_API_URL = 'https://api-inference.huggingface.co/models/pszemraj/flan-t5-large-grammar-synthesis';
 // This is the main function that runs when your chatbot "calls" it
 export default async function handler(request) {
   
