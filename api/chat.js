@@ -4,8 +4,7 @@ export const config = {
 };
 
 // This is the AI model we'll use (a free, fast grammar corrector)
-const MODEL_API_URL = 'https://api-inference.huggingface.co/models/pszemraj/flan-t5-large-grammar-synthesis';
-// This is the main function that runs when your chatbot "calls" it
+const MODEL_API_URL = 'https://api-inference.huggingface.co/models/deep-learning-analytics/Grammar-Correction-T5-small';// This is the main function that runs when your chatbot "calls" it
 export default async function handler(request) {
   
   // 1. Get the user's sentence from the chatbot request
@@ -34,7 +33,7 @@ export default async function handler(request) {
         },
         method: 'POST',
         body: JSON.stringify({
-          inputs: `grammar: ${sentence}`,
+          inputs: sentence,
         }),
       }
     );
