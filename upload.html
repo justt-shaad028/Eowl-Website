@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Upload Notes - EOWL</title>
+
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+ 
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+
+
+  <script>
+
+    (function() {
+
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'dark') {
+
+        document.documentElement.classList.add('dark-mode');
+
+      }
+
+    })();
+
+  </script>
+
+
+
+  <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body>
+
+  <div class="scroll-progress-bar">
+
+    <div class="scroll-progress-bar-fill" id="scroll-progress-fill"></div>
+
+  </div>
+
+
+
+  <header class="header">
+
+    <nav class="container">
+
+      <a href="index.html" class="logo">EOWL 🚀</a>
+
+      <i class="ri-menu-3-line" id="mobile-menu-btn"></i>
+
+     
+
+      <ul class="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="notes.html">Explore Notes</a></li>
+
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+        <li><a href="upload.html" class="active">Upload</a></li>
+
+        <li>
+
+          <button class="theme-toggle-btn" id="theme-toggle-btn">
+
+            <i class="ri-sun-line" id="theme-toggle-icon"></i>
+
+          </button>
+
+        </li>
+
+        <li class="nav-link-login">
+
+          <a href="login.html" class="btn btn-primary">Login</a>
+
+        </li>
+
+        <li class="nav-link-logout">
+
+          <button class="btn btn-secondary" id="logout-btn">Logout</button>
+
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+  <main class="container login-container">
+
+   
+
+    <div class="login-card">
+
+      <h1 class="login-title">Share Your Knowledge</h1>
+
+      <p class="login-subtitle">Upload your notes and help other students. (PDFs only)</p>
+
+     
+
+      <form class="login-form" id="upload-form">
+
+       
+
+        <div class="form-group">
+
+          <label for="note-topic">Topic</label>
+
+          <input type="text" id="note-topic" placeholder="e.g., Tenses, or The Inchcape Rock" required>
+
+        </div>
+
+       
+
+        <div class="form-group">
+
+          <label for="note-section">Section</label>
+
+          <input type="text" id="note-section" placeholder="e.g., Grammar, or Poems (Section II)" required>
+
+        </div>
+
+       
+
+        <div class="form-group">
+
+          <label for="note-file">Note File (PDF only)</label>
+
+          <input type="file" id="note-file" accept=".pdf" required>
+
+        </div>
+
+       
+
+        <div class="upload-status">
+
+          <p class="form-error" id="upload-error-msg"></p>
+
+          <p class="form-success" id="upload-success-msg"></p>
+
+          <div class="progress-bar" id="upload-progress-bar">
+
+            <div class="progress-bar-fill" id="upload-progress-fill"></div>
+
+          </div>
+
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-full" id="upload-btn">
+
+          Upload & Share
+
+        </button>
+
+       
+
+      </form>
+
+    </div>
+
+
+
+  </main>
+
+    <div class="lofi-player">
+
+    <i class="ri-headphone-line"></i>
+
+   
+
+    <div class="lofi-info">
+
+      <span id="lofi-status">Lofi beats to study to...</span>
+
+      <span class="lofi-time" id="lofi-time">0:00 / 0:00</span>
+
+    </div>
+
+   
+
+    <button class="player-btn" id="lofi-tracks-btn" title="Track List">
+
+      <i class="ri-menu-unfold-line"></i>
+
+    </button>
+
+ 
+
+    <button class="player-btn" id="lofi-prev-btn" title="Previous">
+
+      <i class="ri-skip-back-fill"></i>
+
+    </button>
+
+   
+
+    <button class="player-btn" id="lofi-btn" title="Play/Pause">
+
+      <i class="ri-play-fill" id="lofi-icon"></i>
+
+    </button>
+
+   
+
+    <button class="player-btn" id="lofi-next-btn" title="Next">
+
+      <i class="ri-skip-forward-fill"></i>
+
+    </button>
+
+  </div>
+
+
+
+  <audio id="lofi-audio"></audio>
+
+
+
+  <div class="lofi-modal" id="lofi-modal">
+
+    <div class="lofi-modal-content">
+
+      <h3>Select a Track</h3>
+
+      <ul class="lofi-track-list" id="lofi-track-list">
+
+        </ul>
+
+      <button class="btn btn-primary" id="lofi-modal-close">Close</button>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+
+    <p>Good notes build great careers 🎓</p>
+
+    <p>&copy; 2025 EOWL | Created by Shaad</p>
+
+  </footer>
+
+ 
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <script>
+
+    // Your web app's Firebase configuration
+
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyCFp59fb0U_sl_NKTnqNeufklUWvva4Bc4",
+
+      authDomain: "eowl-notes-app.firebaseapp.com",
+
+      projectId: "eowl-notes-app",
+
+      storageBucket: "eowl-notes-app.firebasestorage.app",
+
+      messagingSenderId: "629641052349",
+
+      appId: "1:629641052349:web:7472f7bba8fcd18ae2b7d4"
+
+    };
+
+    // Initialize Firebase
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Create easy-to-use variables
+
+    const auth = firebase.auth();
+
+    const db = firebase.firestore();
+
+    const storage = firebase.storage();
+
+  </script>
+
+ 
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

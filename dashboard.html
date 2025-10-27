@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dashboard - EOWL</title>
+
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+ 
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+ 
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+
+
+  <script>
+
+    (function() {
+
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'dark') {
+
+        document.documentElement.classList.add('dark-mode');
+
+      }
+
+    })();
+
+  </script>
+
+
+
+  <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body>
+
+  <div class="scroll-progress-bar">
+
+    <div class="scroll-progress-bar-fill" id="scroll-progress-fill"></div>
+
+  </div>
+
+
+
+  <header class="header">
+
+    <nav class="container">
+
+      <a href="index.html" class="logo">EOWL 🚀</a>
+
+      <i class="ri-menu-3-line" id="mobile-menu-btn"></i>
+
+     
+
+      <ul class="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="notes.html">Explore Notes</a></li>
+
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+
+        <li><a href="upload.html">Upload</a></li>
+
+        <li>
+
+          <button class="theme-toggle-btn" id="theme-toggle-btn">
+
+            <i class="ri-sun-line" id="theme-toggle-icon"></i>
+
+          </button>
+
+        </li>
+
+        <li class="nav-link-login">
+
+          <a href="login.html" class="btn btn-primary">Login</a>
+
+        </li>
+
+        <li class="nav-link-logout">
+
+          <button class="btn btn-secondary" id="logout-btn">Logout</button>
+
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+  <div class="lofi-modal" id="profile-modal">
+
+  <div class="lofi-modal-content">
+
+    <h3>Welcome to EOWL!</h3>
+
+    <p>Let's create your public profile. This username will be shown on leaderboards.</p>
+
+   
+
+    <form id="profile-form">
+
+      <div class="form-group">
+
+        <label for="username-input">Choose a Username</label>
+
+        <input type="text" id="username-input" placeholder="e.g., NoteNinja" required>
+
+        <p class="form-error" id="profile-error-msg"></p>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="profile-save-btn">Save Profile</button>
+
+    </form>
+
+   
+
+  </div>
+
+</div>
+
+
+
+  <main class="container">
+
+    <h1 class="page-title" data-aos="fade-up" id="dashboard-greeting">My Dashboard</h1>
+
+    <h3 class="page-subtitle" data-aos="fade-up" data-aos-delay="100" id="dashboard-quote"></h3>
+
+   
+
+    <section class="stats-grid">
+
+     
+
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+  <div class="stat-icon" style="background-color: #E8E4FF;">
+    <i class="ri-bookmark-fill" style="color: #6C47FF;"></i>
+  </div>
+  <div class="stat-info">
+    <h3>Notes Saved</h3>
+    <p id="stat-saved-count">0</p> </div>
+</div>
+
+<div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+  <div class="stat-icon" style="background-color: #E4FFF1;">
+    <i class="ri-upload-cloud-fill" style="color: #00B853;"></i> </div>
+  <div class="stat-info">
+    <h3>Notes Uploaded</h3> <p id="stat-uploads-count">0</p> </div>
+</div>
+
+<div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+  <div class="stat-icon" style="background-color: #FFF8E4;">
+    <i class="ri-trophy-fill" style="color: #FFC007;"></i>
+  </div>
+  <div class="stat-info">
+    <h3>Contribution Rank</h3>
+    <p id="stat-rank">#?</p> </div>
+</div>
+     
+
+    </section>
+
+
+
+  </main>
+
+
+
+  <div class="lofi-player">
+
+    <i class="ri-headphone-line"></i>
+
+   
+
+    <div class="lofi-info">
+
+      <span id="lofi-status">Lofi beats to study to...</span>
+
+      <span class="lofi-time" id="lofi-time">0:00 / 0:00</span>
+
+    </div>
+
+   
+
+    <button class="player-btn" id="lofi-tracks-btn" title="Track List">
+
+      <i class="ri-menu-unfold-line"></i>
+
+    </button>
+
+   
+
+    <button class="player-btn" id="lofi-prev-btn" title="Previous">
+
+      <i class="ri-skip-back-fill"></i>
+
+    </button>
+
+   
+
+    <button class="player-btn" id="lofi-btn" title="Play/Pause">
+
+      <i class="ri-play-fill" id="lofi-icon"></i>
+
+    </button>
+
+   
+
+    <button class="player-btn" id="lofi-next-btn" title="Next">
+
+      <i class="ri-skip-forward-fill"></i>
+
+    </button>
+
+  </div>
+
+
+
+  <audio id="lofi-audio"></audio>
+
+
+
+  <div class="lofi-modal" id="lofi-modal">
+
+    <div class="lofi-modal-content">
+
+      <h3>Select a Track</h3>
+
+      <ul class="lofi-track-list" id="lofi-track-list">
+
+      </ul>
+
+      <button class="btn btn-primary" id="lofi-modal-close">Close</button>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+
+    <p>One step closer to your degree 📘</p>
+
+    <p>&copy; 2025 EOWL | Created by Shaad</p>
+
+  </footer>
+
+ 
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script>
+
+    AOS.init({ duration: 600, once: true });
+
+  </script>
+
+ 
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <script>
+
+    // Your web app's Firebase configuration
+
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyCFp59fb0U_sl_NKTnqNeufklUWvva4Bc4",
+
+      authDomain: "eowl-notes-app.firebaseapp.com",
+
+      projectId: "eowl-notes-app",
+
+      storageBucket: "eowl-notes-app.firebasestorage.app",
+
+      messagingSenderId: "629641052349",
+
+      appId: "1:629641052349:web:7472f7bba8fcd18ae2b7d4"
+
+    };
+
+    // Initialize Firebase
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Create easy-to-use variables for each service
+
+    const auth = firebase.auth();
+
+    const db = firebase.firestore();
+
+    const storage = firebase.storage();
+
+  </script>
+
+ 
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

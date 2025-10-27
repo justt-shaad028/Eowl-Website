@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EOWL - Your Modern Study Hub</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body class="home-page">
+
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-bar-fill" id="scroll-progress-fill"></div>
+  </div>
+
+  <header class="header">
+    <nav class="container">
+      <a href="index.html" class="logo">EOWL 🚀</a>
+      <i class="ri-menu-3-line" id="mobile-menu-btn"></i>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="notes.html">Explore Notes</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="upload.html">Upload</a></li>
+        <li>
+          <button class="theme-toggle-btn" id="theme-toggle-btn">
+            <i class="ri-sun-line" id="theme-toggle-icon"></i>
+          </button>
+        </li>
+        <li class="nav-link-login">
+          <a href="login.html" class="btn btn-primary">Login</a>
+        </li>
+        <li class="nav-link-logout">
+          <button class="btn btn-secondary" id="logout-btn">Logout</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="hero-title">
+          Stop digging for notes.
+          <span class="text-gradient">Start acing exams.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Welcome to EOWL, the last note-organizing app you'll ever need.
+          Built by student, for students.
+        </p>
+        <a href="notes.html" class="btn btn-primary btn-lg">
+          Grab your notes & crush it 💪
+        </a>
+      </div>
+    </section>
+
+    <section class="features container">
+      <h2 class="section-title" data-aos="fade-up">Your new setup ⚡️</h2>
+      
+      <div class="features-grid">
+        
+        <a href="notes.html" class="feature-link">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <h3><i class="ri-search-line"></i> Smart Search</h3>
+            <p>Find exactly what you need, when you need it. No more endless scrolling.</p>
+          </div>
+        </a>
+        
+        <a href="upload.html" class="feature-link">
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <h3><i class="ri-upload-cloud-2-line"></i> Upload & Share</h3>
+            <p>Got killer notes? Upload them and help others. (Now live!)</p>
+          </div>
+        </a>
+
+        <div class="card" id="dark-mode-card" data-aos="fade-up" data-aos-delay="300">
+          <h3><i class="ri-contrast-2-line"></i> Dark Mode</h3>
+          <p>For those late-night study sessions. Your eyes will thank you.</p>
+        </div>
+
+      </div>
+      </section>
+
+  </main>
+
+  <div class="lofi-player">
+    <i class="ri-headphone-line"></i>
+    <div class="lofi-info">
+      <span id="lofi-status">Lofi beats to study to...</span>
+      <span class="lofi-time" id="lofi-time">0:00 / 0:00</span>
+    </div>
+    <button class="player-btn" id="lofi-tracks-btn" title="Track List">
+      <i class="ri-menu-unfold-line"></i>
+    </button>
+    <button class="player-btn" id="lofi-prev-btn" title="Previous">
+      <i class="ri-skip-back-fill"></i>
+    </button>
+    <button class="player-btn" id="lofi-btn" title="Play/Pause">
+      <i class="ri-play-fill" id="lofi-icon"></i>
+    </button>
+    <button class="player-btn" id="lofi-next-btn" title="Next">
+      <i class="ri-skip-forward-fill"></i>
+    </button>
+  </div>
+
+  <audio id="lofi-audio"></audio>
+
+  <div class="lofi-modal" id="lofi-modal">
+    <div class="lofi-modal-content">
+      <h3>Select a Track</h3>
+      <ul class="lofi-track-list" id="lofi-track-list">
+      </ul>
+      <button class="btn btn-primary" id="lofi-modal-close">Close</button>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>Consistency > Perfection. You got this 📘</p>
+    <p>&copy; 2025 EOWL | Created by Shaad</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 600, // Animation duration
+      once: true,    // Only animate once
+    });
+  </script>
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCFp59fb0U_sl_NKTnqNeufklUWvva4Bc4",
+      authDomain: "eowl-notes-app.firebaseapp.com",
+      projectId: "eowl-notes-app",
+      storageBucket: "eowl-notes-app.firebasestorage.app",
+      messagingSenderId: "629641052349",
+      appId: "1:629641052349:web:7472f7bba8fcd18ae2b7d4"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Create easy-to-use variables for each service
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+  </script>
+  
+  <script src="js/main.js"></script>
+
+</body>
+</html>

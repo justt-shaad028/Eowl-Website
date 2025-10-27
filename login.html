@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Login / Sign Up - EOWL</title>
+
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+ 
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+ 
+
+  <script>
+
+    (function() {
+
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'dark') {
+
+        document.documentElement.classList.add('dark-mode');
+
+      }
+
+    })();
+
+  </script>
+
+
+
+  <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body>
+
+
+<div class="scroll-progress-bar">
+
+    <div class="scroll-progress-bar-fill" id="scroll-progress-fill"></div>
+
+  </div>
+
+
+
+  <header class="header">
+
+    <nav class="container">
+
+      <a href="index.html" class="logo">EOWL 🚀</a>
+
+      <i class="ri-menu-3-line" id="mobile-menu-btn"></i>
+
+     
+
+      <ul class="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="notes.html">Explore Notes</a></li>
+
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+        <li><a href="upload.html">Upload</a></li>
+
+        <li>
+
+          <button class="theme-toggle-btn" id="theme-toggle-btn">
+
+            <i class="ri-sun-line" id="theme-toggle-icon"></i>
+
+          </button>
+
+        </li>
+
+        <li class="nav-link-login">
+
+          <a href="login.html" class="btn btn-primary">Login</a>
+
+        </li>
+
+        <li class="nav-link-logout">
+
+          <button class="btn btn-secondary" id="logout-btn">Logout</button>
+
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+  <main class="container login-container">
+
+   
+
+    <div class="login-card">
+
+      <h1 class="login-title">Welcome back!</h1>
+
+      <p class="login-subtitle">Let's get you logged in to crush those exams.</p>
+
+     
+
+      <form class="login-form" id="login-form">
+
+        <div class="form-group">
+
+          <label for="email">Email</label>
+
+          <input type="email" id="email" name="email" placeholder="you@school.com" required>
+
+        </div>
+
+       
+
+        <div class="form-group">
+
+          <label for="password">Password</label>
+
+          <div class="password-wrapper">
+
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+
+            <i class="ri-eye-line" id="password-toggle-icon"></i>
+
+          </div>
+
+        </div>
+
+
+
+        <p class="login-error form-error" id="login-error-msg"></p>
+
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-full">
+
+          Login & Start Studying
+
+        </button>
+
+      </form>
+
+     
+
+      <p class="login-footer">Don't have an account? <a href="#" id="signup-link">Sign up here</a></p>
+
+    </div>
+
+
+
+  </main>
+
+ 
+
+  <footer class="footer">
+
+    <p>Consistency > Perfection. You got this 📘</p>
+
+    <p>&copy; 2025 EOWL | Created by Shaad</p>
+
+  </footer>
+
+ 
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <script>
+
+    // Your web app's Firebase configuration
+
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyCFp59fb0U_sl_NKTnqNeufklUWvva4Bc4",
+
+      authDomain: "eowl-notes-app.firebaseapp.com",
+
+      projectId: "eowl-notes-app",
+
+      storageBucket: "eowl-notes-app.firebasestorage.app",
+
+      messagingSenderId: "629641052349",
+
+      appId: "1:629641052349:web:7472f7bba8fcd18ae2b7d4"
+
+    };
+
+
+
+    // Initialize Firebase
+
+    firebase.initializeApp(firebaseConfig);
+
+
+
+    // Create easy-to-use variables for each service
+
+    const auth = firebase.auth();
+
+    const db = firebase.firestore();
+
+    const storage = firebase.storage();
+
+  </script>
+
+ 
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Explore Notes - EOWL</title>
+
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+ 
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+ 
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+ 
+
+  <script>
+
+    (function() {
+
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'dark') {
+
+        document.documentElement.classList.add('dark-mode');
+
+      }
+
+    })();
+
+  </script>
+
+
+
+  <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body>
+
+
+<div class="scroll-progress-bar">
+
+    <div class="scroll-progress-bar-fill" id="scroll-progress-fill"></div>
+
+  </div>
+
+
+
+  <header class="header">
+
+    <nav class="container">
+
+      <a href="index.html" class="logo">EOWL 🚀</a>
+
+      <i class="ri-menu-3-line" id="mobile-menu-btn"></i>
+
+      <ul class="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="notes.html" class="active">Explore Notes</a></li>
+
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+        <li><a href="upload.html">Upload</a></li>
+
+        <li>
+
+          <button class="theme-toggle-btn" id="theme-toggle-btn">
+
+            <i class="ri-sun-line" id="theme-toggle-icon"></i>
+
+          </button>
+
+        </li>
+
+        <li class="nav-link-login">
+
+          <a href="login.html" class="btn btn-primary">Login</a>
+
+        </li>
+
+        <li class="nav-link-logout">
+
+          <button class="btn btn-secondary" id="logout-btn">Logout</button>
+
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+<main class="container">
+    <h1 class="page-title" data-aos="fade-up">Explore Notes</h1>
+    
+    <div class="toolbar" data-aos="fade-up">
+      <div class="search-bar">
+        <i class="ri-search-line"></i>
+        <input type="text" id="search-bar-input" placeholder="Search for 'poems' or 'tenses'...">
+      </div>
+    </div>
+
+    <section class="notes-grid" id="notes-grid-container">
+      
+      <div class="note-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon">🧠</div>
+        <h3 class="note-title">
+            <span class="title-text">Grammar</span>
+        </h3>
+        <p>Tenses, Voice, Narration... all the fun stuff. Master the rules.</p>
+        <div class="topics">
+          <a href="pdfs/tenses.pdf" target="_blank">Tenses</a>
+          <a href="pdfs/reported-speech.pdf" target="_blank">Reported Speech</a>
+          <a href="pdfs/articles.pdf" target="_blank">Articles</a>
+        </div>
+      </div>
+      
+      <div class="note-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon">✍️</div>
+        <h3 class="note-title">
+           <span class="title-text">Writing Skills</span>
+        </h3>
+        <p>Letters, essays, and reports with all the right formats.</p>
+        <div class="topics">
+          <a href="pdfs/letter-writing.pdf" target="_blank">Letter Writing</a>
+          <a href="pdfs/group-discussion.pdf" target="_blank">Group Discussion</a>
+        </div>
+      </div>
+
+      <div class="note-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon">📜</div>
+        <h3 class="note-title">
+           <span class="title-text">Poems (Section II)</span>
+        </h3>
+        <p>In-depth analysis, themes, and appreciation for all syllabus poems.</p>
+        <div class="topics">
+          <a href="pdfs/inchcape-rock.pdf" target="_blank">The Inchcape Rock</a>
+          <a href="pdfs/father-returning.pdf" target="_blank">Father Returning Home</a>
+        </div>
+      </div>
+
+      <div class="note-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-icon">📚</div>
+        <h3 class="note-title">
+           <span class="title-text">Novels (Section IV)</span>
+        </h3>
+        <p>Summaries, character sketches, and plot analysis for your required reading.</p>
+        <div class="topics">
+          <a href="pdfs/to-sir-with-love.pdf" target="_blank">To Sir, With Love</a>
+          <a href="pdfs/sign-of-four.pdf" target="_blank">The Sign of Four</a>
+        </div>
+      </div>
+
+      <div class="note-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-icon">⏳</div>
+        <h3 class="note-title">
+           <span class="title-text">Past Year Questions</span>
+        </h3>
+        <p>Practice with official board papers to master the exam pattern.</p>
+        <div class="topics">
+          <a href="pdfs/2024-board-paper.pdf" target="_blank">2024 Board Paper</a>
+          <a href="pdfs/2023-board-paper.pdf" target="_blank">2023 Board Paper</a>
+        </div>
+      </div>
+
+      <div class="note-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="card-icon">💡</div>
+        <h3 class="note-title">
+           <span class="title-text">Success Skills</span>
+        </h3>
+        <p>Learn *how* to learn. Mind mapping, note-taking, and time management.</p>
+        <div class="topics">
+          <a href="pdfs/mind-mapping.pdf" target="_blank">Mind Mapping</a>
+          <a href="pdfs/time-management.pdf" target="_blank">Time Management</a>
+        </div>
+      </div>
+
+      <div class="note-card" data-aos="fade-up" data-aos-delay="700">
+        <div class="card-icon">📥</div>
+        <h3 class="note-title">
+            <span class="title-text">Community Notes</span>
+        </h3>
+        <p>Notes recently shared by other students. (Use at your own risk!)</p>
+        <div class="topics" id="uploaded-notes-list">
+            <p id="uploaded-notes-loading" style="color: var(--text-light); font-style: italic;">
+              <i class="ri-loader-4-line ri-spin"></i> Loading community notes...
+            </p>
+            <p id="uploaded-notes-empty" style="display: none; color: var(--text-light); font-style: italic;">
+              No community notes yet.
+            </p>
+        </div>
+      </div>
+
+    </section> <div id="notes-empty" style="text-align: center; margin-top: 50px; display: none;">
+      <p style="font-size: 1.1rem; color: var(--text-light);">
+        Oops! No notes match that search.
+      </p>
+    </div>
+
+</main>
+
+   
+
+    <div id="notes-loading" style="text-align: center; margin-top: 50px; display: none;">
+
+      <p>Loading recent notes...</p>
+
+    </div>
+
+   
+
+    <div id="notes-empty" style="text-align: center; margin-top: 50px; display: none;">
+
+      <p>No new community notes found yet. Be the first to upload one!</p>
+
+    </div>
+
+
+
+  </main>
+
+
+
+  <div class="lofi-player">
+
+    <i class="ri-headphone-line"></i>
+
+    <div class="lofi-info">
+
+      <span id="lofi-status">Lofi beats to study to...</span>
+
+      <span class="lofi-time" id="lofi-time">0:00 / 0:00</span>
+
+    </div>
+
+    <button class="player-btn" id="lofi-tracks-btn" title="Track List">
+
+      <i class="ri-menu-unfold-line"></i>
+
+    </button>
+
+    <button class="player-btn" id="lofi-prev-btn" title="Previous">
+
+      <i class="ri-skip-back-fill"></i>
+
+    </button>
+
+    <button class="player-btn" id="lofi-btn" title="Play/Pause">
+
+      <i class="ri-play-fill" id="lofi-icon"></i>
+
+    </button>
+
+    <button class="player-btn" id="lofi-next-btn" title="Next">
+
+      <i class="ri-skip-forward-fill"></i>
+
+    </button>
+
+  </div>
+
+  <audio id="lofi-audio"></audio>
+
+  <div class="lofi-modal" id="lofi-modal">
+
+    <div class="lofi-modal-content">
+
+      <h3>Select a Track</h3>
+
+      <ul class="lofi-track-list" id="lofi-track-list">
+
+      </ul>
+
+      <button class="btn btn-primary" id="lofi-modal-close">Close</button>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+
+    <p>One step closer to your degree 📘</p>
+
+    <p>&copy; 2025 EOWL | Created by Shaad</p>
+
+  </footer>
+
+ 
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script>
+
+    AOS.init({ duration: 600, once: true });
+
+  </script>  
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script>
+
+    // Your web app's Firebase configuration
+
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyCFp59fb0U_sl_NKTnqNeufklUWvva4Bc4", // Use your actual key
+
+      authDomain: "eowl-notes-app.firebaseapp.com",
+
+      projectId: "eowl-notes-app",
+
+      storageBucket: "eowl-notes-app.firebasestorage.app",
+
+      messagingSenderId: "629641052349",
+
+      appId: "1:629641052349:web:7472f7bba8fcd18ae2b7d4" // Use your actual App ID
+
+    };
+
+    // Initialize Firebase
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Create easy-to-use variables
+
+    const auth = firebase.auth();
+
+    const db = firebase.firestore();
+
+  </script>
+
+ 
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
